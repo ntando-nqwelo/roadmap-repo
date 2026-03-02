@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Single Page CV — Your Name</title>
+  <style>
+    :root{--accent:#0b5fff;--muted:#666;--bg:#f7f8fb}
+    html,body{height:100%}
+    body{
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      margin:0;background:var(--bg);color:#111;
+      display:flex;align-items:center;justify-content:center;padding:32px;
+    }
+    .card{
+      width:900px;max-width:100%;background:#fff;border-radius:12px;
+      box-shadow:0 8px 30px rgba(12,20,40,.08);overflow:hidden;
+      display:grid;grid-template-columns:300px 1fr;
+    }
+    header{
+      grid-column:1 / -1;padding:28px 32px;border-bottom:1px solid #eef2ff;
+      display:flex;align-items:center;gap:18px;background:linear-gradient(90deg,rgba(11,95,255,.03),transparent);
+    }
+    .avatar{
+      width:72px;height:72px;border-radius:12px;background:var(--accent);display:flex;
+      align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:22px;
+      box-shadow:0 6px 20px rgba(11,95,255,.12);
+    }
+    .name{
+      font-size:20px;font-weight:700;margin:0;
+    }
+    .role{color:var(--muted);margin:2px 0 0 0;font-size:13px}
+    .left{
+      padding:28px 24px; background:#fbfdff;
+      border-right:1px solid #f1f5ff;display:flex;flex-direction:column;gap:18px;
+    }
+    .section-title{font-size:13px;color:var(--muted);margin:0 0 6px 0;font-weight:700}
+    .contact p,.info p{margin:6px 0;color:#222;font-size:14px}
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .skill{background:#eef4ff;color:var(--accent);padding:6px 8px;border-radius:8px;font-size:13px}
+    .right{padding:28px 32px;min-height:420px;display:flex;flex-direction:column;gap:18px}
+    .card-section{padding-bottom:6px}
+    .job{margin-bottom:12px}
+    .job h4{margin:0;font-size:15px}
+    .job .meta{color:var(--muted);font-size:13px;margin:4px 0}
+    .bulleted{margin:8px 0 0 18px}
+    .edu{display:flex;justify-content:space-between;align-items:center}
+    .projects a{color:var(--accent);text-decoration:none}
+    footer{grid-column:1 / -1;padding:14px 28px;background:#fbfdff;color:var(--muted);font-size:13px;text-align:right}
+    @media (max-width:760px){
+      .card{grid-template-columns:1fr;box-shadow:none}
+      header{flex-direction:column;align-items:flex-start}
+      footer{text-align:left}
+    }
+  </style>
+</head>
+<body>
+  <article class="card" role="article" aria-label="Curriculum vitae">
+    <header>
+      <div class="avatar" aria-hidden="true">YN</div>
+      <div>
+        <h1 class="name">Your Name</h1>
+        <div class="role">Frontend Engineer — React · TypeScript</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:6px">City, Country · your.email@example.com · +44 7123 456789 · github.com/username</div>
+      </div>
+    </header>
+
+    <aside class="left" aria-label="Profile information">
+      <div>
+        <div class="section-title">Profile</div>
+        <div class="contact">
+          <p>Product-focused engineer with 6+ years building web applications, shipping performant, accessible UIs and mentoring teams.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title">Skills</div>
+        <div class="skills">
+          <span class="skill">JavaScript</span>
+          <span class="skill">TypeScript</span>
+          <span class="skill">React</span>
+          <span class="skill">HTML & CSS</span>
+          <span class="skill">Node.js</span>
+          <span class="skill">Testing</span>
+          <span class="skill">Accessibility</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title">Contact</div>
+        <div class="info">
+          <p>Email: your.email@example.com</p>
+          <p>Website: yoursite.example</p>
+          <p>LinkedIn: linkedin.com/in/username</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title">Languages</div>
+        <div class="info">
+          <p>English (Fluent), Spanish (Intermediate)</p>
+        </div>
+      </div>
+    </aside>
+
+    <main class="right" aria-label="Work experience and education">
+      <section class="card-section">
+        <div class="section-title">Experience</div>
+
+        <div class="job">
+          <h4>Senior Frontend Engineer — Acme Corp</h4>
+          <div class="meta">2021 — Present · Remote</div>
+          <ul class="bulleted">
+            <li>Led UI rebuild using React + TypeScript, improving performance and reducing bundle size by 35%.</li>
+            <li>Implemented design system components and accessibility guidelines used across multiple products.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <h4>Frontend Engineer — Beta Labs</h4>
+          <div class="meta">2018 — 2021 · London, UK</div>
+          <ul class="bulleted">
+            <li>Built customer-facing dashboards, improved load time and conversion through progressive enhancement.</li>
+            <li>Mentored junior engineers and established testing best-practices with Jest and Cypress.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card-section">
+        <div class="section-title">Projects</div>
+        <div class="projects">
+          <p><strong>Open Source UI Kit</strong> — Component library with accessible primitives. <a href="#">github.com/username/uikit</a></p>
+          <p><strong>Performance Dashboard</strong> — Internal tool to track KPIs and site health.</p>
+        </div>
+      </section>
+
+      <section class="card-section">
+        <div class="section-title">Education</div>
+        <div class="edu">
+          <div>
+            <strong>BSc Computer Science</strong><br />
+            University Name
+          </div>
+          <div style="color:var(--muted)">2014 — 2017</div>
+        </div>
+      </section>
+
+      <section class="card-section" style="margin-top:auto">
+        <div class="section-title">Interests</div>
+        <div class="info">
+          <p>Open-source, UX, climbing, photography</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Available for full-time & freelance · References available on request
+    </footer>
+  </article>
+</body>
+</html>
