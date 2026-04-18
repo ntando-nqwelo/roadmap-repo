@@ -3,159 +3,192 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Single Page CV — Your Name</title>
+  <title><single-page-cv></single-page-cv></title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    :root{--accent:#0b5fff;--muted:#666;--bg:#f7f8fb}
-    html,body{height:100%}
-    body{
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-      margin:0;background:var(--bg);color:#111;
-      display:flex;align-items:center;justify-content:center;padding:32px;
+    :root {
+      --green: #2e7d32;
+      --blue: #1565c0;
+      --black: #111111;
+      --muted: #444;
+      --line: #111;
     }
-    .card{
-      width:900px;max-width:100%;background:#fff;border-radius:12px;
-      box-shadow:0 8px 30px rgba(12,20,40,.08);overflow:hidden;
-      display:grid;grid-template-columns:300px 1fr;
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: #fff;
+      color: var(--black);
+      padding: 60px 80px;
+      max-width: 820px;
+      margin: 0 auto;
+      font-size: 15px;
+      line-height: 1.6;
+      border: 2px solid black;
+      box-sizing: border-box;
     }
-    header{
-      grid-column:1 / -1;padding:28px 32px;border-bottom:1px solid #eef2ff;
-      display:flex;align-items:center;gap:18px;background:linear-gradient(90deg,rgba(11,95,255,.03),transparent);
+
+    /* Top rule */
+    .top-rule {
+      border: none;
+      border-top: 2.5px solid var(--line);
+      width: 65%;
+      margin-bottom: 28px;
     }
-    .avatar{
-      width:72px;height:72px;border-radius:12px;background:var(--accent);display:flex;
-      align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:22px;
-      box-shadow:0 6px 20px rgba(11,95,255,.12);
+
+    /* Name & title */
+    h1 {
+      font-family: 'Lora', serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 4px;
     }
-    .name{
-      font-size:20px;font-weight:700;margin:0;
+
+    .job-title {
+      color: var(--green);
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 18px;
     }
-    .role{color:var(--muted);margin:2px 0 0 0;font-size:13px}
-    .left{
-      padding:28px 24px; background:#fbfdff;
-      border-right:1px solid #f1f5ff;display:flex;flex-direction:column;gap:18px;
+
+    /* Contact block */
+    .contact {
+      margin-bottom: 28px;
+      line-height: 1.8;
+      color: var(--black);
     }
-    .section-title{font-size:13px;color:var(--muted);margin:0 0 6px 0;font-weight:700}
-    .contact p,.info p{margin:6px 0;color:#222;font-size:14px}
-    .skills{display:flex;flex-wrap:wrap;gap:8px}
-    .skill{background:#eef4ff;color:var(--accent);padding:6px 8px;border-radius:8px;font-size:13px}
-    .right{padding:28px 32px;min-height:420px;display:flex;flex-direction:column;gap:18px}
-    .card-section{padding-bottom:6px}
-    .job{margin-bottom:12px}
-    .job h4{margin:0;font-size:15px}
-    .job .meta{color:var(--muted);font-size:13px;margin:4px 0}
-    .bulleted{margin:8px 0 0 18px}
-    .edu{display:flex;justify-content:space-between;align-items:center}
-    .projects a{color:var(--accent);text-decoration:none}
-    footer{grid-column:1 / -1;padding:14px 28px;background:#fbfdff;color:var(--muted);font-size:13px;text-align:right}
-    @media (max-width:760px){
-      .card{grid-template-columns:1fr;box-shadow:none}
-      header{flex-direction:column;align-items:flex-start}
-      footer{text-align:left}
+
+    /* Section headings */
+    .section-title {
+      color: var(--green);
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 8px;
+      margin-top: 24px;
+    }
+
+    /* Skills */
+    .skills-text {
+      color: var(--black);
+      margin-bottom: 4px;
+    }
+
+    /* Sub-headings (school name, company name) */
+    .entry-heading {
+      color: var(--blue);
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 2px;
+    }
+
+    .entry-dates {
+      color: var(--black);
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .entry-desc {
+      color: var(--black);
+      font-size: 14px;
+      margin-bottom: 4px;
+      margin-left: 18px;
+    }
+
+    /* Experience bullets */
+    .achievements {
+      margin: 6px 0 4px 18px;
+      color: var(--black);
+      font-size: 14px;
+    }
+
+    .responsibilities {
+      margin: 6px 0 4px 18px;
+      color: var(--black);
+      font-size: 14px;
+    }
+
+    .achievements li {
+      margin-bottom: 2px;
+    }
+
+    .entry-skills {
+      font-size: 14px;
+      color: var(--black);
+      margin-top: 4px;
+    }
+
+    /* Experience entries spacing */
+    .entry {
+      margin-bottom: 20px;
+    }
+
+    /* Online links */
+    .online-text {
+      color: var(--black);
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
-  <article class="card" role="article" aria-label="Curriculum vitae">
-    <header>
-      <div class="avatar" aria-hidden="true">YN</div>
-      <div>
-        <h1 class="name">Your Name</h1>
-        <div class="role">Frontend Engineer — React · TypeScript</div>
-        <div style="font-size:13px;color:var(--muted);margin-top:6px">City, Country · your.email@example.com · +44 7123 456789 · github.com/username</div>
-      </div>
-    </header>
 
-    <aside class="left" aria-label="Profile information">
-      <div>
-        <div class="section-title">Profile</div>
-        <div class="contact">
-          <p>Product-focused engineer with 6+ years building web applications, shipping performant, accessible UIs and mentoring teams.</p>
-        </div>
-      </div>
+  <hr class="top-rule" />
 
-      <div>
-        <div class="section-title">Skills</div>
-        <div class="skills">
-          <span class="skill">JavaScript</span>
-          <span class="skill">TypeScript</span>
-          <span class="skill">React</span>
-          <span class="skill">HTML & CSS</span>
-          <span class="skill">Node.js</span>
-          <span class="skill">Testing</span>
-          <span class="skill">Accessibility</span>
-        </div>
-      </div>
+  <h1>Ntando Nqwelo</h1>
+  <div class="job-title">Junior Front Developer</div>
 
-      <div>
-        <div class="section-title">Contact</div>
-        <div class="info">
-          <p>Email: your.email@example.com</p>
-          <p>Website: yoursite.example</p>
-          <p>LinkedIn: linkedin.com/in/username</p>
-        </div>
-      </div>
+  <div class="contact">
+    Tuks Ekhaya Man's Residance<br />
+    Hillcrest, Pretoria<br />
+    (+27)74-800-5695<br />
+    ntandnqwelo@gmail.com
+  </div>
 
-      <div>
-        <div class="section-title">Languages</div>
-        <div class="info">
-          <p>English (Fluent), Spanish (Intermediate)</p>
-        </div>
-      </div>
-    </aside>
+  <!-- Skills -->
+  <div class="section-title">Skills</div>
+  <div class="skills-text">
+    HTML, CSS, JavaScript, Accessibility, Figma to Design, Responsive Web Design,
+    Technical Writing, Presentation
+  </div>
 
-    <main class="right" aria-label="Work experience and education">
-      <section class="card-section">
-        <div class="section-title">Experience</div>
+  <!-- Education -->
+  <div class="section-title">Education</div>
+  <div class="entry">
+    <div class="entry-heading">Stellenbosch University, Stellenbosch,SA - BEng in Electrical & Electronic Engineering</div>
+    <div class="entry-dates">Feb 2023 to Dec 2025</div>
+    <ul class="entry-desc">
+      <li>Academic Tutor</li>
+      <li>Embedded Systems Developer</li>
+      <li>LauncheLab Studentrepreneur</li>
+    </ul>
+  </div>
 
-        <div class="job">
-          <h4>Senior Frontend Engineer — Acme Corp</h4>
-          <div class="meta">2021 — Present · Remote</div>
-          <ul class="bulleted">
-            <li>Led UI rebuild using React + TypeScript, improving performance and reducing bundle size by 35%.</li>
-            <li>Implemented design system components and accessibility guidelines used across multiple products.</li>
-          </ul>
-        </div>
+  <!-- Experience -->
+  <div class="section-title">Experience</div>
+  <div class="entry">
+    <div class="entry-heading">Nqwelo's Electricals, East London,SA - General Manager</div>
+    <div class="entry-dates">Oct 2017 to Sept 2021</div>
+    <ul class="responsibilities">
+      <li>Ensure effective communication with team members</li>
+      <li>Responsible for managing daily operations</li>
+      <li>Oversee the implementation of company policies and procedures</li>
+    </ul>
+    <div class="entry-skills">Skills: Leadership, Communication, Project Management</div>
+  </div>
 
-        <div class="job">
-          <h4>Frontend Engineer — Beta Labs</h4>
-          <div class="meta">2018 — 2021 · London, UK</div>
-          <ul class="bulleted">
-            <li>Built customer-facing dashboards, improved load time and conversion through progressive enhancement.</li>
-            <li>Mentored junior engineers and established testing best-practices with Jest and Cypress.</li>
-          </ul>
-        </div>
-      </section>
+  <div class="entry">
+    <div class="entry-heading">Rodney's Clubhouse, Hatfield,SA - Ranger</div>
+    <div class="entry-dates">Feb 2026*</div>
+    <ul class="responsibilities">
+      <li>Sell tickets</li>
+    </ul>
+    <div class="entry-skills">Skills: Yoco machine operation, Customer Service, Sales</div>
+  </div>
 
-      <section class="card-section">
-        <div class="section-title">Projects</div>
-        <div class="projects">
-          <p><strong>Open Source UI Kit</strong> — Component library with accessible primitives. <a href="#">github.com/username/uikit</a></p>
-          <p><strong>Performance Dashboard</strong> — Internal tool to track KPIs and site health.</p>
-        </div>
-      </section>
-
-      <section class="card-section">
-        <div class="section-title">Education</div>
-        <div class="edu">
-          <div>
-            <strong>BSc Computer Science</strong><br />
-            University Name
-          </div>
-          <div style="color:var(--muted)">2014 — 2017</div>
-        </div>
-      </section>
-
-      <section class="card-section" style="margin-top:auto">
-        <div class="section-title">Interests</div>
-        <div class="info">
-          <p>Open-source, UX, climbing, photography</p>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      Available for full-time & freelance · References available on request
-    </footer>
-  </article>
+  <!-- Across the Internet -->
+  <div class="section-title">Across the Internet</div>
+  <div class="online-text">Discord: https://discord.gg/ntando_nqwelo</div>
+  <div class="online-text">GitHub: https://github.com/ntando-nqwelo</div>
 </body>
 </html>
